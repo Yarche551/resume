@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Ринат Шайхлисламов — Frontend-разработчик. Резюме и проекты." />
   <link rel="icon" type="image/svg+xml" href="img/mail.svg" />
-  <link rel="stylesheet" href="css/style.css" />
-  <title data-i18n="title">Rinat Shaikhlislamov — Frontend Developer</title>
+  <link rel="stylesheet" href="css/style.css?v=20260724" />
+  <title data-i18n="title">Ринат Шайхлисламов — Frontend-разработчик</title>
 </head>
 
 <body>
@@ -20,25 +20,11 @@
     <span class="scroll-top__arrow">↑</span>
   </a>
 
-  <!-- mobile menu -->
+  <!-- mobile menu — заполняется из JS -->
   <button class="burger" id="burger" aria-label="Меню">
     <span class="burger__icon"></span>
   </button>
-  <nav class="mobile-menu" id="mobileMenu">
-    <a href="#home" data-i18n="nav.home" class="mobile-menu__link">Главная</a>
-    <a href="#stack" data-i18n="nav.stack" class="mobile-menu__link">Стек</a>
-    <a href="#projects" data-i18n="nav.projects" class="mobile-menu__link">Проекты</a>
-    <div class="mobile-menu__contacts">
-      <a href="https://www.linkedin.com/in/rinat-shaikhlislamov-a8452a382/" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://t.me/yarche551" target="_blank" rel="noopener">Telegram</a>
-      <a href="https://github.com/Yarche551" target="_blank" rel="noopener">GitHub</a>
-      <a class="mobile-menu__cv" data-cv href="downloads/Resume.pdf" download data-i18n="nav.cv">Download CV</a>
-    </div>
-    <div class="mobile-menu__lang">
-      <button data-lang="ru">RU</button>
-      <button data-lang="en" class="is-active">ENG</button>
-    </div>
-  </nav>
+  <nav class="mobile-menu" id="mobileMenu"></nav>
 
   <!-- ===================== HERO ===================== -->
   <header class="hero" id="home">
@@ -47,34 +33,25 @@
         <a class="logo" href="#home" aria-label="Логотип">
           <img src="img/mail.svg" alt="" />
         </a>
-        <ul class="topbar__nav">
-          <li><a href="#stack" data-i18n="nav.stack">Стек</a></li>
-          <li><a href="#projects" data-i18n="nav.projects">Проекты</a></li>
-          <li class="topbar__lang">
-            <button data-lang="ru">RU</button>
-            <span>/</span>
-            <button data-lang="en" class="is-active">ENG</button>
-          </li>
-        </ul>
+        <!-- ссылки навигации + переключатель языка — из JS -->
+        <ul class="topbar__nav" id="navList"></ul>
       </div>
 
-      <ul class="contacts reveal">
-        <li><a href="https://www.linkedin.com/in/rinat-shaikhlislamov-a8452a382/" target="_blank" rel="noopener">LinkedIn</a></li>
-        <li><a href="https://t.me/yarche551" target="_blank" rel="noopener">Telegram</a></li>
-        <li><a href="https://github.com/Yarche551" target="_blank" rel="noopener">GitHub</a></li>
-        <li><a data-cv href="downloads/Resume.pdf" download data-i18n="hero.download">Download resume</a></li>
-      </ul>
+      <!-- контакты + резюме — из JS -->
+      <ul class="contacts reveal" id="contactList"></ul>
 
       <div class="hero__main">
         <div class="hero__info">
           <p class="hero__hello reveal" data-i18n="hero.hello">Привет, меня зовут</p>
           <h1 class="hero__name reveal" data-i18n="hero.name">Ринат Шайхлисламов</h1>
-          <p class="hero__role reveal" data-i18n="hero.role">Frontend-разработчик</p>
+          <p class="hero__role reveal" data-i18n="hero.role">Frontend-разработчик (Angular)</p>
           <p class="hero__lead reveal" data-i18n="hero.lead">
-            Специализируюсь на создании адаптивных и удобных интерфейсов с помощью
-            JavaScript и современного CSS. Уделяю внимание чистоте кода и быстро осваиваю новые технологии.
+            Frontend-разработчик, ориентированный на результат и процесс. Обладаю фундаментальными знаниями
+            JavaScript, специализируюсь на Angular и TypeScript. Быстро осваиваю инструменты и превращаю
+            макеты в интерфейсы, лендинги и SPA-приложения.
           </p>
-          <a class="btn-contact reveal" href="https://t.me/yarche551" target="_blank" rel="noopener" data-i18n="hero.contact">
+          <a class="btn-contact reveal" href="https://t.me/yarche551" target="_blank" rel="noopener"
+            data-i18n="hero.contact">
             Связаться со мной
           </a>
         </div>
@@ -91,41 +68,30 @@
   <!-- ===================== STACK ===================== -->
   <section class="stack" id="stack">
     <div class="wrap">
-      <h2 class="section-title reveal" data-i18n="stack.title">Технологический стек</h2>
+      <h2 class="section-title reveal" data-i18n="stack.title">Стек</h2>
 
-      <!-- desktop slider (как у Артёма) -->
+      <!-- desktop slider -->
       <div class="slider reveal" id="slider">
         <button class="slider__handle" data-dir="prev" aria-label="Назад">
-          <svg class="slider__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 4l-8 8 8 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg class="slider__icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M15 4l-8 8 8 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
         </button>
         <div class="slider__viewport">
-          <div class="slider__track" id="sliderTrack">
-            <div class="slide"><p>JavaScript</p></div>
-            <div class="slide"><p>TypeScript</p></div>
-            <div class="slide"><p>Tailwind CSS</p></div>
-            <div class="slide"><p>Bootstrap</p></div>
-            <div class="slide"><p>Webpack</p></div>
-            <div class="slide"><p>Parcel</p></div>
-            <div class="slide"><p>Node.js</p></div>
-            <div class="slide"><p>Git</p></div>
-          </div>
+          <!-- слайды — из JS -->
+          <div class="slider__track" id="sliderTrack"></div>
         </div>
         <button class="slider__handle" data-dir="next" aria-label="Вперёд">
-          <svg class="slider__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4l8 8-8 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg class="slider__icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M9 4l8 8-8 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
         </button>
       </div>
 
-      <!-- mobile grid (по одному в ряд) -->
-      <div class="stack-grid reveal">
-        <div class="chip"><p>JavaScript</p></div>
-        <div class="chip"><p>TypeScript</p></div>
-        <div class="chip"><p>Tailwind CSS</p></div>
-        <div class="chip"><p>Bootstrap</p></div>
-        <div class="chip"><p>Webpack</p></div>
-        <div class="chip"><p>Parcel</p></div>
-        <div class="chip"><p>Node.js</p></div>
-        <div class="chip"><p>Git</p></div>
-      </div>
+      <!-- mobile grid — из JS -->
+      <div class="stack-grid reveal" id="stackGrid"></div>
     </div>
   </section>
 
@@ -133,50 +99,12 @@
   <section class="projects" id="projects">
     <div class="wrap">
       <h2 class="section-title reveal" data-i18n="projects.title">Проекты</h2>
-
-      <article class="project reveal">
-        <h3 class="project__title" data-i18n="projects.p1.title">Лендинг «FURNITURE» · Обучение</h3>
-        <p class="project__meta" data-i18n="projects.p1.meta">Март 2026 · 3 недели | Москва, Россия</p>
-        <p class="project__desc" data-i18n="projects.p1.desc">
-          Спроектировал современный лендинг с профессиональным процессом сборки на Node.js и npm.
-          Настроил и оптимизировал сборку через Webpack, стилизовал интерфейс на Tailwind CSS (utility-first).
-        </p>
-        <a class="project__link" href="https://github.com/Yarche551/tailwind_homework" target="_blank" rel="noopener">GitHub →</a>
-      </article>
-
-      <article class="project reveal">
-        <h3 class="project__title" data-i18n="projects.p2.title">Проект «Dostaffkin» · ITlogia-интенсив</h3>
-        <p class="project__meta" data-i18n="projects.p2.meta">Март 2026 · 2 недели | Москва, Россия</p>
-        <p class="project__desc" data-i18n="projects.p2.desc">
-          Разработал функциональный интерфейс веб-приложения с нуля на JavaScript (ES6+) и современном CSS.
-          Реализовал адаптивную вёрстку под мобильные, планшеты и десктоп; интегрировал сторонние инструменты.
-        </p>
-        <a class="project__link" href="https://github.com/Yarche551/dostaffkin" target="_blank" rel="noopener">GitHub →</a>
-      </article>
-
-      <article class="project reveal">
-        <h3 class="project__title" data-i18n="projects.p3.title">Лендинг «Night Light» · Обучение</h3>
-        <p class="project__meta" data-i18n="projects.p3.meta">Январь — февраль 2026 · 2 месяца | Москва, Россия</p>
-        <p class="project__desc" data-i18n="projects.p3.desc">
-          Сделал визуально насыщенный лендинг с акцентом на тёмный режим и световые эффекты.
-          Использовал CSS-анимации и переходы для «премиального» ощущения и полностью адаптивный макет.
-        </p>
-        <a class="project__link" href="https://github.com/Yarche551/nightlights" target="_blank" rel="noopener">GitHub →</a>
-      </article>
-
-      <article class="project reveal">
-        <h3 class="project__title" data-i18n="projects.p4.title">Лендинг «Macaroons» · Раннее обучение</h3>
-        <p class="project__meta" data-i18n="projects.p4.meta">Январь 2026 · 3 недели | Москва, Россия</p>
-        <p class="project__desc" data-i18n="projects.p4.desc">
-          Свёрстал детализированный многосекционный лендинг по макету из Figma с pixel-perfect точностью
-          на семантическом HTML5 и CSS3 (Flexbox, Grid). Добавил интерактив и плавные анимации на JavaScript.
-        </p>
-        <a class="project__link" href="https://github.com/Yarche551/Macaroons" target="_blank" rel="noopener">GitHub →</a>
-      </article>
+      <!-- карточки проектов — из JS -->
+      <div id="projectList"></div>
     </div>
   </section>
 
-  <script src="js/app.js"></script>
+  <script src="js/app.js?v=20260724"></script>
 </body>
 
 </html>
